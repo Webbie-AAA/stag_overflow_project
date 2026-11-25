@@ -1,0 +1,51 @@
+.card-container {
+  border: solid 1px darkgrey;
+  border-radius: 15px;
+  font-family: Helvetica;
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 400px;
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0
+}
+
+h3 {
+    min-height: 2.5rem;
+}
+
+.scientific-name {
+  font-size: 0.9rem;
+  font-weight: 400;
+  font-style: italic;
+  color: #777;
+  display: block;
+}
+
+.long-lat {
+  font-size: 0.9rem;
+  font-weight: 400;
+  font-style: italic;
+  color: #777;
+}
+
+.card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 8px;
+}
+
+.card-buttons {
+margin-top: auto;
+  padding-top: 16px;
+  display: flex;
+  width: 100%;
+  gap: 8px;
+}
+button {
+    flex: 1;
+}
