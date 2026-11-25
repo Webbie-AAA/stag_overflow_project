@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { SearchForm } from "../"
+import { SearchForm } from ".."
 import SearchFilters from "../SearchFilters"
 import { useAPI } from "../../contexts/contexts"
 
