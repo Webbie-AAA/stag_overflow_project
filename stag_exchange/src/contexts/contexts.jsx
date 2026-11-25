@@ -4,6 +4,7 @@ export const ApiContext = createContext();
 
 export const ApiProvider = ({ children }) => {
   const [data, setData] = useState([]); 
+  const [favourites, setFavourites] = useState([])
 
   useEffect(() => {
     async function getData() {
