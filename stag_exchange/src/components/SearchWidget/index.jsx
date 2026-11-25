@@ -1,33 +1,29 @@
 import React, { useState, useEffect } from "react"
 import { SearchForm } from "../"
+import SearchFilters from "../SearchFilters"
 import { useAPI } from "../../contexts/contexts"
 
 export default function SearchWidget() {
 
-    const { setData } = useAPI()
+    const { fetchSightings } = useAPI()
+
     const [searchString, setSearchString] = useState("Deer")
+    const [startDate, setStartDate] = useState("")
+    const [endDate, setEndDate] = useState("")
 
     useEffect(() => {
-
-        async function fetchData() {
-            try{
-                const response = await fetch(`https://api.inaturalist.org/v2/observations?taxon_name=${searchString}&fields=all`)
-                if (!response.ok) {
-                    throw new Error("failed to fetch observations")
-                }
-                const rawData = await response.json()
-                setData(rawData.results)
-            } catch (error) {
-                console.error(error)
-            }
-        }
-
-        fetchData()
-    }, [searchString, setData])
+        fetchSightings(searchString, startDate, endDate)
+    }, [searchString, startDate, endDate, fetchSightings])
 
     return (
         <div>
             <SearchForm handleSearch={setSearchString} lastSearch={searchString} />
+            <SearchFilters 
+                startDate={startDate}
+                endDate={endDate}
+                setStartDate={setStartDate}
+                setEndDate={setEndDate}
+            />
         </div>
     )
 }
