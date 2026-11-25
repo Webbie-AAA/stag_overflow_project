@@ -18,7 +18,7 @@ export const ApiProvider = ({ children }) => {
   }, []);
 
   return (
-    <ApiContext.Provider value={{ data }}>
+    <ApiContext.Provider value={{ data, setData }}>
       {children}
     </ApiContext.Provider>
   );
