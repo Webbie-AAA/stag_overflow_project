@@ -4,7 +4,7 @@ import {Route, Routes} from 'react-router'
 import { NavBar } from './components'
 import { useEffect, useState } from 'react';
 import { ApiProvider } from './contexts/contexts';
-import { FavouritesContext } from './contexts/FavouriteContexts';
+import { FavouritesProvider } from './contexts/FavouritesContext';
 
 
 
@@ -15,7 +15,7 @@ function App() {
   return(
     <>
     <ApiProvider>
-      <FavouritesContext>
+      <FavouritesProvider>
         <Routes>
           <Route path='/' element={<NavBar/>}>
             <Route index element={<Home/>}/>
@@ -28,7 +28,7 @@ function App() {
 
           </Route>
         </Routes>
-      </FavouritesContext>
+      </FavouritesProvider>
     </ApiProvider>
     </>
   )

@@ -1,7 +1,11 @@
 import React from 'react'
+import { FavouritesData, FeedCard } from '../../components/index'
 
 export default function Favourites() {
   return (
-    <div>Favourites</div>
+    <>
+      <FavouritesData/>
+      <FeedCard/>
+    </>
   )
 }
