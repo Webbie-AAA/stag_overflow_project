@@ -21,11 +21,13 @@ export default function FavouritesData() {
         }
         loadFeed();
     }, [favourites])
-
+    console.log(favourites)
     console.log(feed)
 
     return (
         <>
+
+        
             <div className="feed">
                 {feed.map((obj) => (
                     <FeedCard
@@ -33,7 +35,7 @@ export default function FavouritesData() {
                         image={obj.photos?.[0]?.url.replace("square", "medium")}
                         name={obj.species_guess}
                         location={obj.place_guess}
-                        onRemove={() => setFeed((prev) => prev.filter((removed_obj) => removed_obj.id !== obj.id))}
+                   
                     />
                 ))}
 
@@ -45,10 +47,4 @@ export default function FavouritesData() {
     )
 
 }
-// "preferred_common_name": "Great Crested Grebe"
-// "species_guess": "Great Crested Grebe",
-// "created_time_zone": "Europe/London",
-// "created_at": "2026-11-25T20:01:58+00:00",
-// "updated_at": "2026-11-25T20:02:45+00:00",
-// default_photo.medium_url
-// Preferred Common Name
+

@@ -13,8 +13,6 @@ function FeedCard({ image, name, location, onRemove }) {
                 <h3>{name}</h3>
                 <p>{location}</p>
             </div>
-
-            <button onClick={onRemove}>Remove</button>
         </div>
     );
 }

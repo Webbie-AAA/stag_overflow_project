@@ -1,0 +1,36 @@
+.todo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-list {
+    min-width: 50%;
+    list-style: none;
+}
+
+.todo {
+    margin: 0.5rem;
+    background: white;
+    font-size: 1.5rem;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 1s ease;
+    border-radius: 0.5rem;
+}
+
+.trash-btn{
+    background: palevioletred;
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family:'Courier New', Courier, monospace;
+}
+.todo-item {
+    flex: 1;
+    padding: 0rem 0.5rem;
+}
