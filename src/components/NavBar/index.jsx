@@ -9,7 +9,7 @@ export default function NavBar() {
         <ul className='navLinks'>
           <NavLink to='/'> Home </NavLink>
           <NavLink to='/explore'> Explore </NavLink>
-          <NavLink to='/favourites'> Favorites </NavLink>
+          <NavLink to='/favourites'> Favourites </NavLink>
         </ul>
       </nav>
       <Outlet/>
