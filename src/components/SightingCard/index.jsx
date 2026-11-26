@@ -28,7 +28,7 @@ export default function SightingCard({ observation }) {
   }
 
   // code to handle favouriting
-  const { setFavourites } = useFavourites();
+  const { favourites, setFavourites } = useFavourites();
 
   const addFavourite = (newFavourite) => {
     setFavourites((prev) =>
@@ -63,6 +63,8 @@ export default function SightingCard({ observation }) {
     })
 
   }
+
+  
 
   return (
     <div className="card-container">

@@ -84,6 +84,8 @@ export const ApiProvider = ({ children }) => {
         return rawData.results;
     }, []);
 
+
+
     return (
         <ApiContext.Provider
             value={{
