@@ -31,6 +31,7 @@ export default function FavouritesData() {
             <FeedCard
                 key={obj.id}
                 image={obj.photos?.[0]?.url.replace("square", "medium")}
+                name={obj.species_guess}
                 location={obj.place_guess}
                 onRemove={() => setFeed((prev) => prev.filter((removed_obj) => removed_obj.id !== obj.id))}
             />
