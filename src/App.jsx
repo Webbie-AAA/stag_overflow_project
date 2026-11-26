@@ -20,10 +20,8 @@ function App() {
           <Route path='/' element={<NavBar/>}>
             <Route index element={<Home/>} />
 
-            <Route path='/explore' element={<Explore/>} />
-            <Route path='/explore/:id' element={<SightingDetails/>} />
-            <Route path='/browse' element={<Browse/>} />
-            <Route path='/favourites' element={<Favourites/>} />
+            <Route path='/explore' element={<Explore/>}></Route>
+            <Route path='/favourites' element={<Favourites/>}></Route>
 
 
 
