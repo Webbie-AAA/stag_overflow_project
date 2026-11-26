@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext, useCallback } from "react";
+import React, { useState, useEffect, useContext, createContext, useCallback } from "react";
 
 export const ApiContext = createContext();
 
@@ -15,6 +15,30 @@ const FEED_FIELDS = [
 
 export const ApiProvider = ({ children }) => {
     const [data, setData] = useState([]);
+    const [feed, setFeed] = useState([]);
+    const [feedLoading, setFeedLoading] = useState(true)
+
+    useEffect(() => {
+        async function getFeed() {
+            try {
+                const params = new URLSearchParams({
+                    order_by: "observed_on",
+                    order: "desc",
+                    photos: "true",
+                    per_page: "100",
+                    fields: FEED_FIELDS,
+                });
+                const response = await fetch(
+                    `https://api.inaturalist.org/v2/observations?${params}`
+                );
+                const rawData = await response.json();
+                setFeed(rawData.results);
+            } finally {
+                setFeedLoading(false);
+            }
+        }
+        getFeed();
+    }, []);
 
     const fetchSightings = useCallback(async (searchString, startDate, endDate, location) => {
         try {
@@ -94,6 +118,8 @@ export const ApiProvider = ({ children }) => {
         <ApiContext.Provider
             value={{
                 data,
+                feed,
+                feedLoading,
                 fetchSightings,
                 fetchObservations,
             }}
