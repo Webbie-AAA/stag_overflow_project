@@ -66,7 +66,7 @@ export const ApiProvider = ({ children }) => {
             case "location":
                 params.set("lat", favourite.lat);
                 params.set("lng", favourite.lng);
-                params.set("radius", favourite.radius); // km
+                params.set("radius", favourite.radius); 
                 break;
             default:
                 return [];
