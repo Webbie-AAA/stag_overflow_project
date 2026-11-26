@@ -4,9 +4,8 @@ export const ApiContext = createContext();
 
 export const ApiProvider = ({ children }) => {
     const [data, setData] = useState([]);
-    const [favourites, setFavourites] = useState([]);
 
-    const fetchSightings = useCallback(async (searchString, startDate, endDate) => {
+    const fetchSightings = useCallback(async (searchString, startDate, endDate, location) => {
         try {
             const params = new URLSearchParams({
                 taxon_name: searchString,
@@ -22,6 +21,10 @@ export const ApiProvider = ({ children }) => {
 
             if (endDate) {
                 params.append("d2", endDate);
+            }
+
+            if (location) {
+                params.append("place_id", location);
             }
 
             const response = await fetch(
@@ -44,9 +47,7 @@ export const ApiProvider = ({ children }) => {
         <ApiContext.Provider
             value={{
                 data,
-                fetchSightings,
-                favourites,
-                setFavourites
+                fetchSightings
             }}
         >
             {children}

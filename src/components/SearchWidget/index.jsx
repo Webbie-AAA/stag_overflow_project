@@ -10,10 +10,11 @@ export default function SearchWidget() {
     const [searchString, setSearchString] = useState("Deer")
     const [startDate, setStartDate] = useState("")
     const [endDate, setEndDate] = useState("")
+    const [location, setLocation] = useState(null)
 
     useEffect(() => {
-        fetchSightings(searchString, startDate, endDate)
-    }, [searchString, startDate, endDate, fetchSightings])
+        fetchSightings(searchString, startDate, endDate, location)
+    }, [searchString, startDate, endDate, location, fetchSightings])
 
     return (
         <div>
@@ -23,6 +24,7 @@ export default function SearchWidget() {
                 endDate={endDate}
                 setStartDate={setStartDate}
                 setEndDate={setEndDate}
+                setLocation={setLocation}
             />
         </div>
     )
