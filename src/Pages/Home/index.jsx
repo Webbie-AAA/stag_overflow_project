@@ -4,9 +4,9 @@ import { Link } from 'react-router'
 import SearchWidget from '../../components/SearchWidget'
 
 export default function Home() {
-  const {data} = useAPI()
+  const {feed, feedLoading} = useAPI()
 
-  if(data.length === 0) return <p>Loading...</p>
+  if(feedLoading) return <p>Loading...</p>
   return (
     <>
     <div className='aboutSection'>
@@ -15,20 +15,20 @@ export default function Home() {
     </div>
       {/* <pre>{JSON.stringify(data[0], null, 2)}</pre> */}
       <div className="stats">
-        <h2>{data.length}</h2><p className='textLine'>Sightings</p>
-        <h2>{new Set(data.map(o => o.taxon?.id)).size}</h2><p className='textLine'>Species</p>
-        <h2>{data.filter(o => o.taxon?.threatened).length}</h2><p className='textLine'>Threatened</p>
+        <h2>{feed.length}</h2><p className='textLine'>Sightings</p>
+        <h2>{new Set(feed.map(o => o.taxon?.id)).size}</h2><p className='textLine'>Species</p>
+        <h2>{feed.filter(o => o.taxon?.threatened).length}</h2><p className='textLine'>Threatened</p>
       </div>
       <div>
         <p className='sightOfDay'>Sighting of the day!</p>
       </div>
       <div className='dayCard'>
-      <img src={data[0].taxon.default_photo.medium_url}></img>
+      <img src={feed[0].taxon.default_photo.medium_url}></img>
       <ul className='descriptList'>
-        <li><strong>taxon name: </strong>{data[0].taxon.name}</li>
-        <li><strong>common name: </strong>{data[0].taxon.preferred_common_name}</li>
-        <li><strong>location: </strong> {data[0].place_guess ?? 'Unknown location'}</li>
-        <li><strong>observed on: </strong> {data[0].observed_on}</li>
+        <li><strong>taxon name: </strong>{feed[0].taxon.name}</li>
+        <li><strong>common name: </strong>{feed[0].taxon.preferred_common_name}</li>
+        <li><strong>location: </strong> {feed[0].place_guess ?? 'Unknown location'}</li>
+        <li><strong>observed on: </strong> {feed[0].observed_on}</li>
       </ul>
       
       </div>
