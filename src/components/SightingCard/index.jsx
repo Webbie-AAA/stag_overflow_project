@@ -1,6 +1,7 @@
 import React from "react";
 import "./SightingCard.css";
 import { useFavourites } from '../../contexts/FavouritesContext'
+import { Link } from "react-router";
 
 export default function SightingCard({ observation }) {
   // code to handle naming where common is available
@@ -77,6 +78,7 @@ export default function SightingCard({ observation }) {
         <br />
         <span className="long-lat">{observation.location}</span>
       </p>
+      <Link to={`/explore/${observation.id}`}>See more information</Link>
       <div className="card-buttons">
         <button onClick={favouriteSpecies}>Favourite region {'(10km radius)'}</button>
         <button onClick={favouriteLocation}>Favourite species</button>
