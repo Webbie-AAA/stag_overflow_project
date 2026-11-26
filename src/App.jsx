@@ -1,5 +1,5 @@
 import './App.css'
-import {Home, Browse, Explore, Favourites} from './Pages/index'
+import {Home, Browse, Explore, Favourites, SightingDetails} from './Pages/index'
 import {Route, Routes} from 'react-router'
 import { NavBar } from './components'
 import { useEffect, useState } from 'react';
@@ -18,7 +18,7 @@ function App() {
       <FavouritesProvider>
         <Routes>
           <Route path='/' element={<NavBar/>}>
-            <Route index element={<Home/>}/>
+            <Route index element={<Home/>} />
 
             <Route path='/explore' element={<Explore/>}></Route>
             <Route path='/favourites' element={<Favourites/>}></Route>
