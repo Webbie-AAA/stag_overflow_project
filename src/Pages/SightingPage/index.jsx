@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router";
 import { SightingMap } from "../../components";
+import "./SightingPage.css";
 
 export default function SightingPage() {
   const { id } = useParams();
@@ -43,7 +44,8 @@ export default function SightingPage() {
   return (
     <div className="page-container">
       <div className="sighting-container">
-        <h1>{name}</h1>
+        <div className="sighting-name"><h1>{name}</h1></div>
+        
 
         <div className="sighting-photos">
           {observation.photos?.map((photo) => (
@@ -55,7 +57,7 @@ export default function SightingPage() {
         </div>
 
         <section className="sighting-information">
-        <h2>Sighting information</h2>
+        <h2>Sighting Location</h2>
         <SightingMap mapId={`map-${observation.id}`} longitude={observation.geojson.coordinates[0]} latitude={observation.geojson.coordinates[1]} />
         <p>Location: {observation.place_guess}</p>
 
@@ -97,7 +99,7 @@ export default function SightingPage() {
 
       {taxon && (
         <section className="species-information">
-          <h2>About the species</h2>
+          <h2>About the Species</h2>
 
           <p>Scientific name: {taxon.name}</p>
           <p>Category: {taxon.iconic_taxon_name}</p>
@@ -127,21 +129,19 @@ export default function SightingPage() {
 
       {observation.user && (
         <div className="observer-information">
-          <h2>Observed by <a target="_blank" href={`https://www.inaturalist.org/people/${observation.user.login}`}>{observation.user.login}</a></h2>
-
           {observation.user.icon_url && (
             <img
               src={observation.user.icon_url}
               className="observer-picture"
             />
           )}
+          <p><b>Observed by <a target="_blank" href={`https://www.inaturalist.org/people/${observation.user.login}`}>{observation.user.login}</a></b><br />
 
-          
-
-          <p>
+      
             User's total observations:{' '}
             {observation.user.observations_count?.toString()}
           </p>
+          
 
           
         </div>
