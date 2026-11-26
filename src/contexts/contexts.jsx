@@ -55,7 +55,7 @@ export const ApiProvider = ({ children }) => {
             order_by: "observed_on",
             order: "desc",
             photos: "true",
-            per_page: "25",
+            per_page: "10",
             fields: FEED_FIELDS,
         });
 
