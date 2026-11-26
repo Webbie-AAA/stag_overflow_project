@@ -20,6 +20,7 @@ export default function Favourites() {
           </small>
         </div>
       </div>
+      
 
       <FavouritesData />
     </>

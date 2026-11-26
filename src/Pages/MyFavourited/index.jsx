@@ -4,7 +4,9 @@ import { ListedFaves } from '../../components'
 export default function MyFavourited() {
   return (
     <>
-    <ListedFaves/>
+    <div className="favourites-page">
+      <ListedFaves />
+    </div>
     </>
   )
 }

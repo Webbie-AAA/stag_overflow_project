@@ -9,10 +9,7 @@ import { FavouritesProvider } from './contexts/FavouritesContext';
 
 
 function App() {
-  
-
-
-  return(
+  return (
     <>
     <ApiProvider>
       <FavouritesProvider>
@@ -33,7 +30,7 @@ function App() {
       </FavouritesProvider>
     </ApiProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
