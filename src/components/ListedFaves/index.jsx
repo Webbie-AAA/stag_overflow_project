@@ -16,9 +16,12 @@ export default function ListedFaves() {
             <ul className="todo-list">
                 {favourites.map((fave, index) => (
                     <li className="todo" key={index}>
-                        <p className='todo-tem'>{fave.name || fave.type}</p>
+                        <p className="todo-item">
+                            {fave.name || fave.type}
+                        </p>
 
-                        <button className='trash-btn' onClick={() => removeFavourite(index)}>
+                        <button className="trash-btn"
+                            onClick={() => removeFavourite(index)}>
                             Remove
                         </button>
                     </li>
