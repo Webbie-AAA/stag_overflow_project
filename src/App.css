@@ -25,3 +25,149 @@ nav {
 body {
     background-color: beige;
 }
+
+.search-widget {
+    background-color: #cacbb6;
+    padding: 20px;
+    border-radius: 16px;
+    max-width: auto;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-widget form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-widget input {
+    padding: 12px 16px;
+    border: 1px solid #b8c5a9;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: white;
+}
+
+.search-widget input[type="text"] {
+    flex: 1;
+    min-width: 200px;
+}
+
+.search-widget button, .search-widget input[type="submit"] {
+    padding: 12px 20px;
+    background-color: #4a9f4a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.search-widget button:hover, .search-widget input[type="submit"]:hover {
+    background-color: #3e8e3e;
+}
+
+.search-widget .clear-search {
+    display: block;
+    background-color: transparent;
+    border: 1px solid #4a9f4a;
+    color: #4a9f4a;
+    margin-top: 10px;
+    margin-left: auto;
+}
+
+.search-widget .clear-search:hover {
+    background-color: #e8f3e8;
+}
+
+.search-filters {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.date-filter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.date-filter label {
+    font-size: 15px;
+    font-weight: bold;
+    color: #354b36;
+    font-family: Arial, sans-serif;
+    align-self: center;
+}
+
+.date-filter input[type="date"] {
+    min-width: 150px;
+}
+
+.date-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.location-filter {
+    position: relative;
+}
+
+.location-filter form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.location-filter input[type="text"] {
+    flex: 1;
+    min-width: 0;
+}
+
+.location-filter button[type="submit"] {
+    flex: 0 0 auto;
+    width: auto;
+    white-space: nowrap;
+}
+
+.location-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.search-widget .location-result {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    background-color: white;
+    color: #354b36;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    text-align: left;
+    cursor: pointer;
+}
+
+.search-widget .location-result:hover {
+    background-color: #f0f0f0;
+}
+
+.search-widget .location-result:last-child {
+    border-bottom: none;
+}

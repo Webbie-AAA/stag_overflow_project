@@ -3,6 +3,8 @@ import { SearchForm } from ".."
 import SearchFilters from "../SearchFilters"
 import { useAPI } from "../../contexts/contexts"
 
+import "../../App.css"
+
 export default function SearchWidget() {
 
     const { fetchSightings } = useAPI()
@@ -11,13 +13,22 @@ export default function SearchWidget() {
     const [startDate, setStartDate] = useState("")
     const [endDate, setEndDate] = useState("")
     const [location, setLocation] = useState(null)
+    const [resetSearch, setResetSearch] = useState(0)
+
+    function clearSearch() {
+        setSearchString("Deer")
+        setStartDate("")
+        setEndDate("")
+        setLocation(null)
+        setResetSearch(prev => prev + 1)
+    }
 
     useEffect(() => {
         fetchSightings(searchString, startDate, endDate, location)
     }, [searchString, startDate, endDate, location, fetchSightings])
 
     return (
-        <div>
+        <div className="search-widget">
             <SearchForm handleSearch={setSearchString} lastSearch={searchString} />
             <SearchFilters 
                 startDate={startDate}
@@ -25,7 +36,9 @@ export default function SearchWidget() {
                 setStartDate={setStartDate}
                 setEndDate={setEndDate}
                 setLocation={setLocation}
+                resetSearch={resetSearch}
             />
+            <button type="button" className="clear-search" onClick={clearSearch}>Clear Search</button>
         </div>
     )
 }

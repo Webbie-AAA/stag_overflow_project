@@ -30,7 +30,7 @@ export default function LocationFilter({ setLocation }) {
   }
 
   return (
-    <div>
+    <div className="location-filter">
       <form onSubmit={handleSearch}>
         <input
           type="text"
@@ -41,26 +41,20 @@ export default function LocationFilter({ setLocation }) {
         <button type="submit">Find Location</button>
       </form>
 
-      {places.map((place) => (
-        <button
-          key={place.id}
-          type="button"
-          onClick={() => handleSelect(place)}
-        >
-          {place.display_name || place.name}
-        </button>
-      ))}
-
-      <button
-        type="button"
-        onClick={() => {
-          setLocation(null);
-          setInput("");
-          setPlaces([]);
-        }}
-      >
-        Anywhere
-      </button>
+      {places.length > 0 && (
+        <div className="location-results">
+          {places.map((place) => (
+            <button
+              key={place.id}
+              type="button"
+              className="location-result"
+              onClick={() => handleSelect(place)}
+            >
+              {place.display_name || place.name}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
