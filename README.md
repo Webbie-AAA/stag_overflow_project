@@ -1,16 +1,17 @@
-# React + Vite
+# Stag Exchange
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## About
+Welcome to Stag Exchange. This page utilises the inaturalist API (https://api.inaturalist.org/v2/docs/) and allows you to see latest animal sightings that have been posted around the world. 
+You can see the animal sightings in the Explore page and search by animal or location. 
 
-Currently, two official plugins are available:
+## Visit the deployed web page
+You can visit the doployed version of this web page via this link: 
+<>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting started 
+To set this up you can:
+1. Clone this repo onto your computer. 
+2. In your computer terminal, `cd` into the directory that was created from running the `git clone` command. 
+3. Open the files in your code editor ( run `code .` if you are using VScode).
+4. Make sure you are in the same directory level as 'package.json', and then run `npm install`. 
+5. Then, run `npm run dev` command to run the webpage on your local server.  
