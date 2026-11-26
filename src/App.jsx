@@ -21,7 +21,6 @@ function App() {
             <Route index element={<Home/>}/>
 
             <Route path='/explore' element={<Explore/>}></Route>
-            <Route path='/browse' element={<Browse/>}></Route>
             <Route path='/favourites' element={<Favourites/>}></Route>
 
 
