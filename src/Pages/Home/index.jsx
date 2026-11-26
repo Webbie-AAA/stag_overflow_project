@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
     <div className='aboutSection'>
-      <h1>HomePage</h1>
+      <h1>Home page</h1>
       <p>Welcome to Stag exchange! This is an application that allows you to find animal sightings by location or name. To search for sightings, <Link to="/explore">explore here</Link></p>
     </div>
       {/* <pre>{JSON.stringify(data[0], null, 2)}</pre> */}
