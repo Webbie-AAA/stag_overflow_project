@@ -31,33 +31,41 @@ export default function SightingCard({ observation }) {
   // code to handle favouriting
   const { favourites, setFavourites } = useFavourites();
 
+  const addFavourite = (newFavourite) => {
+    setFavourites((prev) =>
+    prev.some((f) => f.id === newFavourite.id) ? prev : [...prev, newFavourite]
+  );
+};
+
+
   const favouriteSpecies = () => {
     if (!observation.taxon) return;
 
-    const newFavourite = {
-        favType: 'wildlife',
-        taxonId: observation.taxon.id,
-        sciName: observation.taxon.name,
-        commonName: observation.taxon.preferred_common_name || observation.taxon.name,
+    addFavourite({
+        type: 'wildlife',
+        id: `wildlife:${observation.taxon.id}`,
+        name: observation.taxon.preferred_common_name || observation.taxon.name,
+        scientific_name: observation.taxon.name,
         image: observation.taxon.default_photo?.medium_url
-    }
-    setFavourites(prev => [...prev, newFavourite])
+    })
   }
 
   const favouriteLocation = () => {
     if (!observation.location || observation.obscured ) return;
 
-    const [latitude, longitude] = observation.location.split(',').map(Number);
-    const newFavourite = {
-      favType: 'location',
+    const [lat, lng] = observation.location.split(',').map(Number);
+    addFavourite({
+      type: 'location',
+      id: `location:${lat},${lng}`,
       name: observation.place_guess,
-      latitude: latitude,
-      longitude: longitude,
+      lat: lat,
+      lng: lng,
       radius: 10
-    }
+    })
 
-    setFavourites(prev => [...prev, newFavourite])
   }
+
+  
 
   return (
     <div className="card-container">
@@ -80,8 +88,8 @@ export default function SightingCard({ observation }) {
       </p>
       <Link to={`/explore/${observation.id}`}>See more information</Link>
       <div className="card-buttons">
-        <button onClick={favouriteSpecies}>Favourite region {'(10km radius)'}</button>
-        <button onClick={favouriteLocation}>Favourite species</button>
+        <button onClick={favouriteSpecies}>Favourite species </button>
+        <button onClick={favouriteLocation}>Favourite location {'(10km radius)'}</button>
       </div>
       
     </div>

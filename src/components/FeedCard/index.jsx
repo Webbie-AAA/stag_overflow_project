@@ -1,3 +1,5 @@
+import './FeedCard.css'
+
 function FeedCard({ image, name, location, onRemove }) {
     return (
         <div className="feed-card">
