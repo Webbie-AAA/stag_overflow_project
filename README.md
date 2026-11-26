@@ -6,7 +6,7 @@ You can see the animal sightings in the Explore page and search by animal or loc
 
 ## Visit the deployed web page
 You can visit the doployed version of this web page via this link: 
-<>
+<https://stag-overflow-project.onrender.com/>
 
 ## Getting started 
 To set this up you can:
