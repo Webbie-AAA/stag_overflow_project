@@ -18,11 +18,12 @@ function App() {
       <FavouritesProvider>
         <Routes>
           <Route path='/' element={<NavBar/>}>
-            <Route index element={<Home/>}/>
+            <Route index element={<Home/>} />
 
-            <Route path='/explore' element={<Explore/>}></Route>
-            <Route path='/browse' element={<Browse/>}></Route>
-            <Route path='/favourites' element={<Favourites/>}></Route>
+            <Route path='/explore' element={<Explore/>} />
+            <Route path='/browse' element={<Browse/>} />
+            <Route path='/favourites' element={<Favourites/>} />
+            {/* <Route path='/favourites/choices' element={<SightingDetails/>} /> */}
 
 
 
