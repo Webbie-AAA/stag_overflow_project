@@ -24,4 +24,42 @@ nav {
 
 body {
     background-color: beige;
+    font-size: larger;
+}
+
+.dayCard {
+  border: solid 1px darkgrey;
+  background-color: #f0f7ee ;
+  border-radius: 15px;
+  font-family: Helvetica;
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 400px;
+  padding-bottom: 15px;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.sightOfDay{
+    text-align: center;
+    font-size: x-large;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.descriptList li {
+  margin-bottom: 0.6rem;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.textLine{
+    margin-top: 3vh;
 }
