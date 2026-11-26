@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router";
+import { SightingMap } from "../../components";
 
 export default function SightingPage() {
   const { id } = useParams();
@@ -38,6 +39,7 @@ export default function SightingPage() {
     name = "Unknown species";
   }
 
+
   return (
     <div className="page-container">
       <div className="sighting-container">
@@ -54,7 +56,7 @@ export default function SightingPage() {
 
         <section className="sighting-information">
         <h2>Sighting information</h2>
-
+        <SightingMap mapId={`map-${observation.id}`} longitude={observation.geojson.coordinates[0]} latitude={observation.geojson.coordinates[1]} />
         <p>Location: {observation.place_guess}</p>
 
         {observation.observed_on && (
