@@ -1,6 +1,6 @@
 import React, {useState, useContext, useEffect} from 'react'
 import { useFavourites } from '../../contexts/FavouritesContext';
-
+import FeedCard from '../FeedCard'
 
 export default function FavouritesData() {
     const [location, setLocation] = useState([])
@@ -106,6 +106,7 @@ export default function FavouritesData() {
             {location.results?.map((obj, index) => 
             <div key={index}>
             <li> {JSON.stringify(obj)}</li>
+            <FeedCard/>
            
             </div>
             )}
