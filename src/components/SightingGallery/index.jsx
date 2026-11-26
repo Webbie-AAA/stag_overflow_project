@@ -7,7 +7,7 @@ export default function SightingGallery({  }) {
     const { data } = useAPI()
   return (
     <div className="sighting-gallery">
-        {data.map(observation => <SightingCard observation={observation} /> )}
+        {data.map(observation => <SightingCard key={observation.id} observation={observation} /> )}
     </div>
   )
 }

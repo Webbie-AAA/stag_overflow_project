@@ -1,6 +1,7 @@
 import React from 'react'
 import { useAPI } from '../../contexts/contexts'
 import { Link } from 'react-router'
+import SearchWidget from '../../components/SearchWidget'
 
 export default function Home() {
   const {data} = useAPI()
