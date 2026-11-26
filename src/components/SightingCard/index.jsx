@@ -1,5 +1,6 @@
 import React from "react";
 import "./SightingCard.css";
+import { useFavourites } from '../../contexts/FavouritesContext'
 
 export default function SightingCard({ observation }) {
   // code to handle naming where common is available
@@ -26,6 +27,37 @@ export default function SightingCard({ observation }) {
     image = observation.taxon?.default_photo?.medium_url;
   }
 
+  // code to handle favouriting
+  const { favourites, setFavourites } = useFavourites();
+
+  const favouriteSpecies = () => {
+    if (!observation.taxon) return;
+
+    const newFavourite = {
+        favType: 'wildlife',
+        taxonId: observation.taxon.id,
+        sciName: observation.taxon.name,
+        commonName: observation.taxon.preferred_common_name || observation.taxon.name,
+        image: observation.taxon.default_photo?.medium_url
+    }
+    setFavourites(prev => [...prev, newFavourite])
+  }
+
+  const favouriteLocation = () => {
+    if (!observation.location || observation.obscured ) return;
+
+    const [latitude, longitude] = observation.location.split(',').map(Number);
+    const newFavourite = {
+      favType: 'location',
+      name: observation.place_guess,
+      latitude: latitude,
+      longitude: longitude,
+      radius: 10
+    }
+
+    setFavourites(prev => [...prev, newFavourite])
+  }
+
   return (
     <div className="card-container">
       <h3>{name}</h3>
@@ -46,8 +78,8 @@ export default function SightingCard({ observation }) {
         <span className="long-lat">{observation.location}</span>
       </p>
       <div className="card-buttons">
-        <button>Favourite this region</button>
-        <button>Favourite this species</button>
+        <button onClick={favouriteSpecies}>Favourite region {'(10km radius)'}</button>
+        <button onClick={favouriteLocation}>Favourite species</button>
       </div>
       
     </div>
