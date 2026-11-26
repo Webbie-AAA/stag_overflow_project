@@ -2,6 +2,7 @@ import React, { useState, useContext, createContext, useCallback } from "react";
 
 export const ApiContext = createContext();
 
+
 const FEED_FIELDS = [
     "id", "uri", "description", "observed_on", "time_observed_at", "created_at",
     "location", "place_guess", "obscured", "quality_grade", "species_guess",
@@ -65,32 +66,35 @@ export const ApiProvider = ({ children }) => {
             case "location":
                 params.set("lat", favourite.lat);
                 params.set("lng", favourite.lng);
-                params.set("radius", favourite.radius);              
+                params.set("radius", favourite.radius); // km
                 break;
             default:
                 return [];
         }
 
-        const response = await fetch(`https://api.inaturalist.org/v2/observations?${params}`);
-        if (!response.ok){
-            throw new Error(`${favourite.name ?? favourite.type}: ${response.status}`)
+        const response = await fetch(
+            `https://api.inaturalist.org/v2/observations?${params}`
+        );
+
+        if (!response.ok) {
+            throw new Error(`${favourite.name ?? favourite.type}: ${response.status}`);
         }
 
-        const rawData = await response.json()
+        const rawData = await response.json();
         return rawData.results;
+    }, []);
 
     return (
         <ApiContext.Provider
             value={{
                 data,
                 fetchSightings,
+                fetchObservations,
             }}
         >
             {children}
         </ApiContext.Provider>
     );
-}, []);
-
-    
+};
 
 export const useAPI = () => useContext(ApiContext);
