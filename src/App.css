@@ -224,3 +224,28 @@ body {
     margin-top: 3.5vh;
 }
 
+.favourites-filter {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+
+}
+
+.favourites-filter button {
+    padding: 10px 20px;
+    background-color: #4a9f4a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.favourites-filter button.active {
+    background-color: #3e8e3e;
+}
+
+.favourites-filter button:hover {
+    background-color: #3e8e3e;
+}
